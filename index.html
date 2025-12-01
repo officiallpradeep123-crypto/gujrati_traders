@@ -1,197 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ગુજરાતી TRADER – Premium Landing Page</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gujarati Trader™ Premium</title>
 
-<!-- Premium Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        background: #000;
-        color: white;
-        font-family: 'Poppins', sans-serif;
-    }
+  :root{
+    --bg:#070607;
+    --card:#0f0f10;
+    --muted:#bdb8b8;
+    --gold1:#d4a017;
+    --gold2:#ffd46a;
+    --accent-red:#ff2b2b;
+  }
 
-    .hero {
-        text-align: center;
-        padding: 40px 20px;
-        background: linear-gradient(180deg, #000000 0%, #111111 100%);
-    }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:#eaeaea;
+    font-family:"Poppins",sans-serif;
+    overflow-x:hidden;
+    line-height:1.5;
+  }
 
-    .logo {
-        width: 260px;
-        margin-top: 10px;
-        border-radius: 50%;
-        animation: glowPulse 4s infinite ease-in-out,
-                   fadeIn 2s ease-in-out,
-                   softZoom 6s infinite alternate ease-in-out;
-    }
+  .wrap{
+    width:92%;
+    max-width:650px;
+    margin:25px auto;
+    text-align:center;
+  }
 
-    .title {
-        font-family: 'Playfair Display', serif;
-        font-size: 42px;
-        font-weight: 900;
-        background: linear-gradient(90deg, #ffd700, #ffbf00, #ff9100);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-top: 20px;
-        animation: fadeDown 1.3s ease-in-out;
-    }
+  /* UPDATED LOGO SIZE (20% Bigger) */
+  .logo-frame{
+    width:156px;
+    height:156px;
+    margin:15px auto;
+    border-radius:50%;
+    position:relative;
+    background:#0f0f10;
+    box-shadow:0 0 20px rgba(255,153,51,0.6),0 0 20px rgba(19,136,8,0.6);
+    overflow:hidden;
+  }
+  .logo-frame::before{
+    content:"";position:absolute;inset:-6px;border-radius:50%;
+    background:conic-gradient(
+      rgba(255,153,51,0.95) 0deg 120deg,
+      rgba(255,255,255,0.92) 120deg 240deg,
+      rgba(19,136,8,0.95) 240deg 360deg
+    );
+    filter:blur(7px);opacity:.85;animation:spin 12s linear infinite;
+  }
 
-    .subtitle {
-        color: #cccccc;
-        font-size: 18px;
-        margin-top: 10px;
-        animation: fadeIn 1.4s ease-in-out;
-    }
+  @keyframes spin{to{transform:rotate(360deg)}}
 
-    .btn-primary {
-        display: inline-block;
-        margin-top: 25px;
-        padding: 15px 30px;
-        border-radius: 50px;
-        font-size: 20px;
-        font-weight: 600;
-        text-decoration: none;
-        color: black;
-        background: linear-gradient(90deg, #ffbf00, #ffd700);
-        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-        transition: 0.3s;
-        animation: pulse 2s infinite;
-    }
+  .logo-inner{
+    width:132px;
+    height:132px;
+    border-radius:50%;
+    margin:auto;
+    top:12px;
+    position:relative;
+    background:#111;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .logo-inner img{width:82%;border-radius:50%;}
 
-    .btn-primary:hover {
-        transform: scale(1.08);
-        box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
-    }
+  .king{font-size:36px;margin-top:10px;}
 
-    .card {
-        margin: 25px auto;
-        max-width: 90%;
-        padding: 25px;
-        border-radius: 16px;
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.1);
-        backdrop-filter: blur(10px);
-        animation: fadeInUp 1.2s ease-in-out;
-    }
+  h1{
+    margin:5px 0;color:var(--gold1);font-weight:700;font-size:30px;position:relative;
+    display:inline-block;
+  }
+  h1::after{
+    content:"";height:4px;width:0;display:block;margin:6px auto 0;
+    background:linear-gradient(90deg,var(--gold2),var(--gold1));
+    border-radius:8px;animation:underline 3s infinite;
+  }
+  @keyframes underline{0%{width:0;}50%{width:80%;}100%{width:0;}}
 
-    .card h2 {
-        font-family: 'Montserrat', sans-serif;
-        background: linear-gradient(90deg, #ffbf00, #ffd700);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-size: 24px;
-        margin-bottom: 15px;
-    }
+  .tagline{color:var(--muted);font-size:14px;margin-bottom:20px;}
 
-    .card p {
-        color: #eeeeee;
-        line-height: 1.7;
-        font-size: 16px;
-        font-family: 'Poppins', sans-serif;
-    }
+  /* CTA BASE */
+  .cta-base{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 26px;
+    border-radius:40px;
+    font-weight:600;
+    text-decoration:none;
+    font-size:16px;
+    transition:.25s;
+    box-shadow:0 0 20px rgba(0,0,0,.4);
+  }
+  .cta-base:hover{transform:translateY(-4px) scale(1.03);}
+  .cta-base img{width:22px;}
 
-    .footer {
-        margin-top: 40px;
-        padding: 20px;
-        color: #aaaaaa;
-        text-align: center;
-        font-size: 14px;
-    }
+  /* RED BUTTON */
+  .cta-red{
+    background:linear-gradient(180deg,#ff3a3a,#b30000);
+    color:white;
+    box-shadow:0 0 22px rgba(255,40,40,0.7),0 0 40px rgba(255,0,0,0.35);
+  }
 
-    @keyframes fadeIn {
-        0% {opacity: 0; transform: translateY(20px);}
-        100% {opacity: 1; transform: translateY(0);}
-    }
+  /* UPDATED GOLD BUTTON (Same icons & text as red) */
+  .cta-gold{
+    background:linear-gradient(180deg,#ffdf6f,#c79a00);
+    color:black;
+    box-shadow:0 0 22px rgba(255,215,0,0.7),0 0 40px rgba(255,200,0,0.35);
+  }
 
-    @keyframes fadeDown {
-        0% {opacity: 0; transform: translateY(-20px);}
-        100% {opacity: 1; transform: translateY(0);}
-    }
+  /* FLOATING TELEGRAM BUTTON */
+  .tele-float{
+    position:fixed;right:20px;bottom:70px;width:58px;height:58px;
+    border-radius:50%;background:#0A84FF;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 28px rgba(0,0,0,0.5),
+               0 0 18px rgba(10,132,255,0.4);
+    z-index:2000;
+    animation:bob 3s ease-in-out infinite;
+  }
+  .tele-float img{width:30px;}
+  @keyframes bob{0%{transform:translateY(0);}50%{transform:translateY(-8px);}100%{transform:translateY(0);}}
 
-    @keyframes fadeInUp {
-        0% {opacity: 0; transform: translateY(30px);}
-        100% {opacity: 1; transform: translateY(0);}
-    }
+  .card{
+    background:var(--card);border-radius:14px;padding:22px;text-align:left;margin:18px 0;
+    border:1px solid rgba(255,255,255,0.04);
+    box-shadow:0 8px 22px rgba(0,0,0,0.6),
+               inset 0 -4px 14px rgba(255,255,255,0.02);
+  }
 
-    @keyframes glowPulse {
-        0% {box-shadow: 0 0 15px #ffd700;}
-        50% {box-shadow: 0 0 40px #ffbf00;}
-        100% {box-shadow: 0 0 15px #ff9100;}
-    }
+  .section-title{color:var(--gold2);font-size:18px;font-weight:600;margin-bottom:12px;}
+  ul{padding-left:20px;margin:0;color:var(--muted);}
 
-    @keyframes softZoom {
-        0% {transform: scale(1);}
-        100% {transform: scale(1.03);}
-    }
+  .profit-bar{
+    margin:18px auto;background:#111;padding:12px;border-radius:10px;
+    color:var(--gold2);font-weight:600;font-size:16px;
+  }
 
-    @keyframes pulse {
-        0% {transform: scale(1);}
-        50% {transform: scale(1.06);}
-        100% {transform: scale(1);}
-    }
+  .account-bar{
+    margin:18px auto;background:#151515;padding:12px;border-radius:10px;
+    color:#9cf3ff;font-weight:600;font-size:15px;
+  }
+
+  .review-bar{
+    margin:18px auto;background:#101011;padding:14px;border-radius:10px;
+    color:var(--muted);font-weight:600;font-size:15px;
+  }
+
 </style>
+
+<!-- META PIXEL -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)_fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1201388038759937');
+fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1201388038759937&ev=PageView&noscript=1"/>
+</noscript>
+
 </head>
 
 <body>
 
-<section class="hero">
+<div class="wrap">
 
-    <!-- YOUR LOGO -->
-    <img src="https://uploads.onecompiler.io/445e5df86/445tc7ue3/330.png" 
-         class="logo" alt="Gujarati Trader Logo">
+  <!-- UPDATED BIGGER LOGO -->
+  <div class="logo-frame">
+    <div class="logo-inner">
+      <img src="https://uploads.onecompiler.io/445e5df86/445tc7ue3/330.png">
+    </div>
+  </div>
 
-    <div class="title">👑 ગુજરાતી TRADER 👑</div>
-    <div class="subtitle">🚀 Gujarat’s Most Trusted Stock Market Community</div>
+  <div class="king">👑</div>
 
-    <!-- NEW TELEGRAM LINK -->
-    <a class="btn-primary" href="https://t.me/+4Sa2GoAT3dRjZjg1" target="_blank">
-        🔥 Join Our Premium Telegram
+  <h1>Gujarati Trader™ Premium</h1>
+  <div class="tagline">Smart Levels • Institutional Concepts • Elite Trading</div>
+
+  <!-- RED + GOLD BUTTONS (Updated text & icons same) -->
+  <div style="display:flex; flex-direction:column; gap:14px; align-items:center;">
+
+    <!-- RED BUTTON -->
+    <a class="cta-base cta-red" href="https://t.me/+s0qU8EasVERhOTc9">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg">
+      Join Our Telegram
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg">
     </a>
-</section>
 
-<div class="card">
-    <h2>📊 Stock Market Mastery</h2>
-    <p>
-        Welcome to <b>ગુજરાતી TRADER</b> — where trading becomes powerful, simple,  
-        and 100% in Gujarati language!
-        <br><br>
-        💹 Intraday Trading  
-        📈 Options Trading (CE/PE)  
-        🔍 Price Action  
-        🎯 Chart Patterns  
-        🧠 Trading Psychology  
-    </p>
-</div>
-
-<div class="card">
-    <h2>🔥 Why Join Our Community?</h2>
-    <p>
-        ✔ Daily Intraday Calls  
-        ✔ High Accuracy Levels  
-        ✔ BankNifty + Nifty Analysis  
-        ✔ Market Trend Prediction  
-        ✔ Beginner to Advanced Guidance  
-        ✔ Professional Trading Approach  
-    </p>
-</div>
-
-<div style="text-align:center;">
-    <a class="btn-primary" href="https://t.me/+4Sa2GoAT3dRjZjg1" target="_blank">
-        💰 Join Now — 100% Free
+    <!-- GOLD BUTTON (updated) -->
+    <a class="cta-base cta-gold" href="https://t.me/+s0qU8EasVERhOTc9">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg">
+      Join Our Telegram
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg">
     </a>
+
+  </div>
+
+  <!-- Profit Counter -->
+  <div class="profit-bar" id="profitBar">127+ Members booked profits today 🔥</div>
+
+  <!-- Account Handling -->
+  <div class="account-bar" id="accountBar">Rohan is handling ₹1,20,000 account 🔥</div>
+
+  <!-- Review -->
+  <div class="review-bar" id="reviewBar">Ronak: “Discipline improved massively.”</div>
+
+  <div class="card">
+    <div class="section-title">What You Get Inside</div>
+    <ul>
+      <li>📊 Market Structure & Institutional Concepts</li>
+      <li>📍 Daily Nifty & BankNifty Levels</li>
+      <li>🎯 Intraday & Swing Setups</li>
+      <li>🧠 Psychology & Risk Management</li>
+      <li>📈 Pre-Market Chart Breakdown</li>
+      <li>👥 Premium Trading Community</li>
+    </ul>
+  </div>
+
+  <footer style="color:var(--muted);margin:25px 0 40px;font-size:13px">
+    Gujarati Trader™ © 2025 • Premium Trading Community
+  </footer>
+
 </div>
 
-<div class="footer">
-    © 2025 ગુજરાતી TRADER — All Rights Reserved.  
-    <br>💛 Empowering Traders. Growing Futures.
-</div>
+<!-- Floating Telegram -->
+<a class="tele-float" href="https://t.me/+s0qU8EasVERhOTc9">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg">
+</a>
+
+<!-- AUTO UPDATES -->
+<script>
+/* Profit Counter */
+setInterval(() => {
+  const count = Math.floor(Math.random()*200)+50;
+  const msgs = [
+    `${count}+ Members booked profits today 🔥`,
+    `${count}+ Traders hit targets today 📈`,
+    `${count}+ Premium trades successful ✔`,
+    `${count}+ Today’s profitable traders 💹`
+  ];
+  document.getElementById("profitBar").textContent =
+    msgs[Math.floor(Math.random()*msgs.length)];
+}, 2500);
+
+/* Account Handling */
+setInterval(() => {
+  const names=["Rohit","Mihir","Vivek","Hardik","Nirav","Raj","Manav","Sahil","Yash","Krunal"];
+  const amounts=["₹80,000","₹1,10,000","₹95,000","₹1,50,000","₹1,25,000","₹2,00,000","₹1,75,000","₹60,000","₹90,000","₹1,40,000"];
+
+  document.getElementById("accountBar").textContent =
+    `${names[Math.floor(Math.random()*names.length)]} is handling ${amounts[Math.floor(Math.random()*amounts.length)]} account 🔥`;
+}, 2600);
+
+/* Reviews */
+setInterval(() => {
+  const rev=[
+    "Ronak: “Discipline ma bohot improvement.”",
+    "Harsh: “Charts samajvu easy now.”",
+    "Krunal: “Market clarity next level.”",
+    "Jay: “Best premium community.”",
+    "Chirag: “Swing setups are🔥”",
+    "Mahesh: “Options selling clarity top.”",
+    "Viraj: “Entry timing superb.”"
+  ];
+  document.getElementById("reviewBar").textContent =
+    rev[Math.floor(Math.random()*rev.length)];
+}, 2500);
+</script>
 
 </body>
-</html>
+</html>            
